@@ -32,20 +32,6 @@ const eliminarLibro = async (id) => {
     .catch(error => {
       console.error('Error al eliminar el elemento:', error);
     });
-
-
-      // Realizar la solicitud DELETE con el token CSRF simulado
-      // const response = await fetch(`http://localhost:8000/libros/${id}/`, {
-      //     method: 'DELETE',
-      //     headers: {
-      //         'Content-Type': 'application/json',
-      //     },
-      // });
-
-      // if (!response.ok) {
-      //     throw new Error('Error al eliminar el libro');
-      // }
-
       console.log('Libro eliminado correctamente');
       // Actualizar la lista de libros u otra lógica aquí
   } catch (error) {
@@ -53,17 +39,9 @@ const eliminarLibro = async (id) => {
   }
 };
 
-
-
-
-
-
-
   useEffect(() => {
     obtenerLibros();
   }, []);
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
