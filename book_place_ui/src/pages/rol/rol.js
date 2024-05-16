@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Menu from '../../components/menu/menu.js'; // Asegúrate de importar el componente Menu desde su ubicación correcta
 
 const FormularioRol = () => {
   const [nombre, setNombre] = useState('');
@@ -57,35 +58,36 @@ const FormularioRol = () => {
 
 
   return (
-    <div className="container">
-      <h1>Formulario de Rol</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="nombre">Nombre:</label>
-          <input
-            type="text"
-            className="form-control"
-            id="nombre"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">Guardar</button>
-      </form>
+    <><div>
+      <Menu /> {/* Aquí se coloca el componente Menu */}
+    </div><div className="container mt-5">
+        <h2 className="text-center mb-4">Roles</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="nombre">Nombre:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="nombre"
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)} />
+          </div>
+          <button type="submit" className="btn btn-primary">Guardar</button>
+        </form>
 
-      <br/>
+        <br />
 
-      <h1>Listado de Roles</h1>
-      <ul>
-        {roles.map(rol => (
-          <li key={rol.id}>
-            {rol.nombre}
-            <button onClick={() => eliminarRol(rol.id)}>Eliminar</button>
-          </li>
-          
-        ))}
-      </ul>
-    </div>
+        <h1>Listado de Roles</h1>
+        <ul>
+          {roles.map(rol => (
+            <li key={rol.id}>
+              {rol.nombre}
+              <button onClick={() => eliminarRol(rol.id)}>Eliminar</button>
+            </li>
+
+          ))}
+        </ul>
+      </div></>
   );
 };
 

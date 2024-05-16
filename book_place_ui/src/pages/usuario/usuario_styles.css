@@ -1,0 +1,17 @@
+.container-usuario {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  /* No hay necesidad de align-items */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+}
+
+.form-container {
+  width: 50%; /* Ocupa el 50% del ancho de la pantalla */
+}
+
+/* Ajusta el tamaño del formulario para pantallas pequeñas */
+@media (max-width: 768px) {
+  .form-container {
+    width: 80%; /* Por ejemplo, para dispositivos móviles */
+  }
+}

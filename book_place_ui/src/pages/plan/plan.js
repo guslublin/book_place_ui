@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Menu from '../../components/menu/menu.js'; // Asegúrate de importar el componente Menu desde su ubicación correcta
 
 const FormularioPlan = () => {
   const [nombre, setNombre] = useState('');
@@ -60,54 +61,54 @@ const FormularioPlan = () => {
   };
 
   return (
-    <div className="container">
-      <h1>Formulario de Plan</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="nombre">Nombre:</label>
-          <input
-            type="text"
-            className="form-control"
-            id="nombre"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="valor">Valor:</label>
-          <input
-            type="number"
-            className="form-control"
-            id="valor"
-            value={valor}
-            onChange={(e) => setValor(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="dias">Días:</label>
-          <input
-            type="date"
-            className="form-control"
-            id="dias"
-            value={dias}
-            onChange={(e) => setDias(e.target.value)}
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">Guardar</button>
-      </form>
+    <><div>
+      <Menu /> {/* Aquí se coloca el componente Menu */}
+    </div><div className="container mt-5">
+        <h2 className="text-center mb-4">Planes</h2>
 
-      <br/>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="nombre">Nombre:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="nombre"
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="valor">Valor:</label>
+            <input
+              type="number"
+              className="form-control"
+              id="valor"
+              value={valor}
+              onChange={(e) => setValor(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="dias">Días:</label>
+            <input
+              type="number"
+              className="form-control"
+              id="dias"
+              value={dias}
+              onChange={(e) => setDias(e.target.value)} />
+          </div>
+          <button type="submit" className="btn btn-primary">Guardar</button>
+        </form>
 
-      <h1>Listado de Planes</h1>
-      <ul>
-        {planes.map(plan => (
-          <li key={plan.id}>
-            <strong>ID:</strong> {plan.id} | <strong>Nombre:</strong> {plan.nombre} | <strong>Valor:</strong> {plan.valor} | <strong>Días:</strong> {plan.dias}
-            <button onClick={() => eliminarPlan(plan.id)}>Eliminar</button>
-          </li>
-        ))}
-      </ul>
-    </div>
+        <br />
+
+        <h1>Listado de Planes</h1>
+        <ul>
+          {planes.map(plan => (
+            <li key={plan.id}>
+              <strong>ID:</strong> {plan.id} | <strong>Nombre:</strong> {plan.nombre} | <strong>Valor:</strong> {plan.valor} | <strong>Días:</strong> {plan.dias}
+              <button onClick={() => eliminarPlan(plan.id)}>Eliminar</button>
+            </li>
+          ))}
+        </ul>
+      </div></>
   );
 };
 
