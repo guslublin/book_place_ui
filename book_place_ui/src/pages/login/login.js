@@ -8,6 +8,12 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  function handleRegister() {
+    // Borrar el id_usuario del localStorage
+    // Redirigir al usuario al login
+    window.location.href = '/registro';
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -64,6 +70,13 @@ const LoginForm = () => {
               <Button variant="primary" type="submit">
                 Iniciar sesión
               </Button>
+            </div>
+            <br></br>
+            <div className="d-grid gap-2">
+              <button className="btn btn-success" onClick={handleRegister}>Regístrate</button>
+              {/* <Button variant="success" type="submit">
+                
+              </Button> */}
             </div>
             <br></br>
           </Form>

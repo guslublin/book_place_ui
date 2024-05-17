@@ -9,6 +9,7 @@ const FormularioRol = () => {
   const obtenerRoles = async () => {
     try {
       const response = await axios.get('http://localhost:8000/roles/');
+      console.log('response.data.roles', response.data.roles);
       setRoles(response.data.roles);
     } catch (error) {
       console.error('Error al obtener los roles:', error);

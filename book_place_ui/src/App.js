@@ -9,6 +9,7 @@ import Usuario from './pages/usuario/usuario';
 import Libros from './pages/libros/libros';
 import Categorias from './pages/categorias/categorias';
 import Autores from './pages/autores/autores';
+import RegistroForm from './pages/registro/registro';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/libros" element={<Libros />} /> {/* Ruta de otra página */}
         <Route exact path="/categorias" element={<Categorias />} /> {/* Ruta de otra página */}
         <Route exact path="/autores" element={<Autores />} /> {/* Ruta de otra página */}
+        <Route exact path="/registro" element={<RegistroForm />} /> {/* Ruta de otra página */}
       </Routes>
     </Router>
   );
