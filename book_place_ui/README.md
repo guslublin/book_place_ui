@@ -4,6 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+Install all npm dependencies.
+
+### `npm install`
+
 In the project directory, you can run:
 
 ### `npm start`
@@ -68,3 +72,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+### Primeros pasos
+
+# Ingresar a http://localhost:3000/rol y agregar roles, Admin y User
+
+# Ingreasr a http://localhost:3000/usuario y agregar un usuario, elegir rol Admin
+
+# Ingreasr a http://localhost:3000/registro y registrarse como un usuario normal, User automático
+
+# Ingresar a http://localhost:3000/ y loguearse con las credenciales correspondientes
