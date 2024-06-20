@@ -9,7 +9,6 @@ const FormularioRol = () => {
   const obtenerRoles = async () => {
     try {
       const response = await axios.get('http://localhost:8000/roles/');
-      console.log('response.data.roles', response.data.roles);
       setRoles(response.data.roles);
     } catch (error) {
       console.error('Error al obtener los roles:', error);
@@ -44,24 +43,20 @@ const FormularioRol = () => {
 
   const eliminarRol = async (id) => {
     try {
-      axios.delete(`http://localhost:8000/roles/eliminar_rol/${id}/`)
-      .then(response => {
-        console.log('Rol eliminado correctamente:', response.data);
-        obtenerRoles();
-      })
-      .catch(error => {
-        console.error('Error al eliminar el rol:', error);
-      });
+      await axios.delete(`http://localhost:8000/roles/eliminar_rol/${id}/`);
+      console.log('Rol eliminado correctamente');
+      obtenerRoles();
     } catch (error) {
-        console.error('Error al eliminar el rol:', error);
+      console.error('Error al eliminar el rol:', error);
     }
   };
 
-
   return (
-    <><div>
-      <Menu /> {/* Aquí se coloca el componente Menu */}
-    </div><div className="container mt-5">
+    <>
+      <div>
+        <Menu /> {/* Aquí se coloca el componente Menu */}
+      </div>
+      <div className="container mt-5">
         <h2 className="text-center mb-4">Roles</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -78,17 +73,32 @@ const FormularioRol = () => {
 
         <br />
 
-        <h1>Listado de Roles</h1>
-        <ul>
-          {roles.map(rol => (
-            <li key={rol.id}>
-              {rol.nombre}
-              <button onClick={() => eliminarRol(rol.id)}>Eliminar</button>
-            </li>
-
-          ))}
-        </ul>
-      </div></>
+        <h1 className="mt-4">Listado de Roles</h1>
+        <table className="table table-striped mt-3">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {roles.map((rol) => (
+              <tr key={rol.id}>
+                <td>{rol.nombre}</td>
+                <td>
+                  <button
+                    onClick={() => eliminarRol(rol.id)}
+                    className="btn btn-danger"
+                  >
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 };
 
